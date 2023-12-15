@@ -1,4 +1,4 @@
-const SI = 'si' ;
+const SI = 'si';
 const NO = 'no';
 const INICIAL = 18;
 const FINAL = 100;
@@ -7,6 +7,8 @@ let nombre;
 let edad;
 let dni;
 let nacionalidad;
+
+
 
 
 let planillaGeneral = [];
@@ -32,7 +34,7 @@ const mayores = document.querySelector('#ManMe');
 
 
 
-boton.addEventListener('click', () => {    
+boton.addEventListener('click', () => {
     agregarPersona();
     guardarPlanilla()
     limpiarForm(registro);
@@ -40,8 +42,9 @@ boton.addEventListener('click', () => {
 
 
 vaciar.addEventListener('click', () => {
-    continuar = prompt ('Esta por borrar todo regristro de la planilla. Desea continuar ? Si / No');
-    continuar === SI ?    localStorage.clear(): alert ('NO se borrara registro')}
+    continuar = prompt('Esta por borrar todo regristro de la planilla. Desea continuar ? Si / No');
+    continuar === SI ? localStorage.clear() : alert('NO se borrara registro')
+}
 );
 
 
@@ -54,55 +57,58 @@ consulta.addEventListener('click', () => {
 
 
 
-menores.addEventListener('click', ()=>{
+menores.addEventListener('click', () => {
     traerPlanilla();
-    const menorEdad = planillaGeneral.filter((Persona)=> {return Persona.edad < INICIAL });
-        const vistaPlanilla = document.getElementById("items");
-        vistaPlanilla.innerHTML = '';
-        menorEdad.forEach((indiv) =>{
+    const menorEdad = planillaGeneral.filter((Persona) => { return Persona.edad < INICIAL });
+    const vistaPlanilla = document.getElementById("items");
+    vistaPlanilla.innerHTML = '';
+    menorEdad.forEach((indiv) => {
         vistaPlanilla.innerHTML = vistaPlanilla.innerHTML +
-                `<tr>
+            `<tr>
                     <td>${indiv.nombre}</td>
                     <td>${indiv.dni}</td>
                     <td>${indiv.edad}</td>
                     <td>${indiv.nacionalidad}</td>
                     </tr>    
                     `;
-    })});
+    })
+});
 
 
-mayores.addEventListener('click', ()=>{
+mayores.addEventListener('click', () => {
     traerPlanilla();
-    const mayorEdad = planillaGeneral.filter((Persona)=> {return Persona.edad >= INICIAL && Persona.edad <= FINAL });
-        const vistaPlanilla = document.getElementById("items");
-        vistaPlanilla.innerHTML = '';
-        mayorEdad.forEach((indiv) =>{
-            vistaPlanilla.innerHTML = vistaPlanilla.innerHTML +
-                    `<tr>
-                        <td>${indiv.nombre}</td>
-                        <td>${indiv.dni}</td>
-                        <td>${indiv.edad}</td>
-                        <td>${indiv.nacionalidad}</td>
-                        </tr>    
-                        `;
-        })});
-
-        
-        
-    
-buscar.addEventListener('click', ()=>{
-    traerPlanilla();
-    const filClave = planillaGeneral.filter((Persona)=> { return Persona.nacionalidad.includes( clave.value ) });    
+    const mayorEdad = planillaGeneral.filter((Persona) => { return Persona.edad >= INICIAL && Persona.edad <= FINAL });
     const vistaPlanilla = document.getElementById("items");
-        vistaPlanilla.innerHTML = '';
-        filClave.forEach((indiv) =>{
-            vistaPlanilla.innerHTML = vistaPlanilla.innerHTML +
-                    `<tr>
+    vistaPlanilla.innerHTML = '';
+    mayorEdad.forEach((indiv) => {
+        vistaPlanilla.innerHTML = vistaPlanilla.innerHTML +
+            `<tr>
                         <td>${indiv.nombre}</td>
                         <td>${indiv.dni}</td>
                         <td>${indiv.edad}</td>
                         <td>${indiv.nacionalidad}</td>
                         </tr>    
                         `;
-        })});
+    })
+});
+
+
+
+
+buscar.addEventListener('click', () => {
+    traerPlanilla();
+    const filClave = planillaGeneral.filter((Persona) => { return Persona.nacionalidad.includes(clave.value) || Persona.nombre.includes(clave.value) });
+    const vistaPlanilla = document.getElementById("items");
+    vistaPlanilla.innerHTML = '';
+    filClave.forEach((indiv) => {
+        vistaPlanilla.innerHTML = vistaPlanilla.innerHTML +
+            `<tr>
+                        <td>${indiv.nombre}</td>
+                        <td>${indiv.dni}</td>
+                        <td>${indiv.edad}</td>
+                        <td>${indiv.nacionalidad}</td>
+                        </tr>    
+                        `;
+    })
+});
 

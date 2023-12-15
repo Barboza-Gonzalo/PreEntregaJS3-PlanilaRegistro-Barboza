@@ -28,7 +28,7 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 600px;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
@@ -47,6 +47,12 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+ label {
+    display: block;
+    margin-bottom: 8px;
+}
+
 
 
     
