@@ -4,12 +4,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 
 }
 /*!------------body-----------*/
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.541), rgba(255, 255, 255, 0.541)), url(../img/descarga.jpg);
+    background-size:cover;
+    background-position: center;
+    
+    
+
+}
 h1 {
     text-align: center;
     font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0.541);
+    
 }
 
 body {
@@ -24,19 +35,29 @@ form {
 
 label {
     display: block;
+    font-style: italic;
+    font-size:larger;
+    font-weight: bolder;
     margin-bottom: 8px;
 }
 
 input {
     width: 600px;
     padding: 8px;
+    font-style: italic;
+    font-size:larger;
+    font-weight: bolder;
     margin-bottom: 16px;
     box-sizing: border-box;
 }
 
 button {
     background-color: #7f8d7f;
+    font-style: italic;
+    font-size:larger;
+    font-weight: bolder;
     color: white;
+    margin: 20px;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;

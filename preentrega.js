@@ -1,5 +1,4 @@
-const SI = 'si';
-const NO = 'no';
+
 const INICIAL = 18;
 const FINAL = 100;
 
@@ -9,10 +8,8 @@ let dni;
 let nacionalidad;
 
 
-
-
 let planillaGeneral = [];
-
+let planillaJson = [];
 
 
 const personaNombre = document.getElementById('nombre');
@@ -31,19 +28,30 @@ const mayores = document.querySelector('#ManMe');
 
 
 
-
-
-
 boton.addEventListener('click', () => {
-    agregarPersona();
-    guardarPlanilla()
+    validarCampos();
+    guardarPlanilla();
     limpiarForm(registro);
 });
 
 
 vaciar.addEventListener('click', () => {
-    continuar = prompt('Esta por borrar todo regristro de la planilla. Desea continuar ? Si / No');
-    continuar === SI ? localStorage.clear() : alert('NO se borrara registro')
+    Swal.fire({
+        title: "Desea borrar registro?",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `No`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.clear();
+            Swal.fire("Se borro registro correctamente");
+            const vistaPlanilla = document.getElementById("items");
+            vistaPlanilla.innerHTML = '';
+        } else if (result.isDenied) {
+            Swal.fire('NO se borrara registro');
+        }
+    });
+
 }
 );
 
@@ -51,14 +59,18 @@ vaciar.addEventListener('click', () => {
 
 
 consulta.addEventListener('click', () => {
-    traerPlanilla();
-    dibujarPlanilla();
-})
+    traerPersonas();
+    traerPlanilla();  
+    planillaGeneral = planillaGeneral.concat(planillaJson);
+    dibujarPlanilla() }); 
+
 
 
 
 menores.addEventListener('click', () => {
     traerPlanilla();
+    traerPersonas();
+    planillaGeneral = planillaGeneral.concat(planillaJson);
     const menorEdad = planillaGeneral.filter((Persona) => { return Persona.edad < INICIAL });
     const vistaPlanilla = document.getElementById("items");
     vistaPlanilla.innerHTML = '';
@@ -77,6 +89,8 @@ menores.addEventListener('click', () => {
 
 mayores.addEventListener('click', () => {
     traerPlanilla();
+    traerPersonas();
+    planillaGeneral = planillaGeneral.concat(planillaJson);
     const mayorEdad = planillaGeneral.filter((Persona) => { return Persona.edad >= INICIAL && Persona.edad <= FINAL });
     const vistaPlanilla = document.getElementById("items");
     vistaPlanilla.innerHTML = '';
@@ -97,6 +111,8 @@ mayores.addEventListener('click', () => {
 
 buscar.addEventListener('click', () => {
     traerPlanilla();
+    traerPersonas();
+    planillaGeneral = planillaGeneral.concat(planillaJson);
     const filClave = planillaGeneral.filter((Persona) => { return Persona.nacionalidad.includes(clave.value) || Persona.nombre.includes(clave.value) });
     const vistaPlanilla = document.getElementById("items");
     vistaPlanilla.innerHTML = '';

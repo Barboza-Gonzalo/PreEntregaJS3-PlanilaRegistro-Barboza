@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>PLANILLA DE REGISTRO </h1>
+    <h1>PLANILLA REGISTRO DE PERSONAS</h1>
     <form id="registroForm">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -27,8 +27,9 @@
         <div id="botones">
 
             <button type="submit" id="registrar">Registrar</button>
-            <button type="submit" id="vaciar">Vaciar Registro</button>
+            <button type="submit" id="vaciar">Borrar datos ingresados</button>
             <button type="submit" id="consultar">Consultar Registro</button>
+
         </div>
     </form>
     <table class="table table-success table-striped ">
@@ -59,6 +60,7 @@
                 placeholder="Ingrese Nombre , Nacionalidad o palabra clave" required>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./persona.js"></script>
     <script src="./mostrarPlanilla.js"></script>
     <script src="./preentrega.js"></script>

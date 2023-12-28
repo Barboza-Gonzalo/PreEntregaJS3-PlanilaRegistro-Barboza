@@ -27,5 +27,11 @@ function guardarPlanilla() {
 
 
 function traerPlanilla() {
-    planillaGeneral = JSON.parse(localStorage.getItem('planilla'));
+    planillaGeneral = JSON.parse(localStorage.getItem('planilla'))  ;
 };
+
+
+function validarCampos() {
+    personaEdad.value === '' && personaEdad.value === '' && personaDni.value ==='' && personaNacionalidad.value ==='' ?  Swal.fire({ title: "Rellene todos los campos",}):agregarPersona()  ;
+    }
+    

@@ -1,0 +1,32 @@
+[
+    {
+    "nombre": "Nicolas Vallejo" ,
+    "dni":12152628 ,
+    "edad":55,
+    "nacionalidad":"paraguayo"
+    },
+
+    {"nombre":"Agustina Garcia",
+    "dni":35127889,
+    "edad":22,
+    "nacionalidad":"argentina"
+    },
+
+    {"nombre":"Rodrigo Diaz",
+    "dni":40258995,
+    "edad":11,
+    "nacionalidad":"argentino"
+    },
+
+    {"nombre":"Jerson Apil",
+    "dni":99152368,
+    "edad":36,
+    "nacionalidad":"venenzolano"
+    },
+
+    {"nombre":"Valentino Aguilar",
+    "dni":57256452,
+    "edad":5,
+    "nacionalidad":"argentino"
+    }
+]
